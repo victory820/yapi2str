@@ -1,0 +1,25 @@
+{
+  "name": "格式化API数据",
+  "description": "将YAPI数据，格式化为jsdoc形式",
+  "version": "1.1",
+  "manifest_version": 3,
+  "icons": {
+    "16": "/images/data.png",
+    "32": "/images/data.png",
+    "48": "/images/data.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "16": "/images/data.png",
+    "32": "/images/data.png",
+    "48": "/images/data.png"
+  }
+}
