@@ -4,6 +4,8 @@
   "description": "",
   "main": "background.js",
   "scripts": {
+    "dev": "webpack --config webpack.config.dev.js",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +18,17 @@
   "bugs": {
     "url": "https://github.com/victory820/yapi2str/issues"
   },
-  "homepage": "https://github.com/victory820/yapi2str#readme"
+  "homepage": "https://github.com/victory820/yapi2str#readme",
+  "dependencies": {
+    "mockjs": "^1.1.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.1.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  }
 }
