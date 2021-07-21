@@ -15,48 +15,28 @@ function createMockData (datas) {
         _getStructure(item.children, tempObj[item.name], item.type)
       } else {
         if (item.type === 'Number') {
-          if (preType === 'Object') {
-            tempObj[item.name] = 0
-          } else if (preType === 'Object []') {
-            tempObj[0][item.name] = 0
-          } else if (preType === 'String []') {
-            tempObj.push(0)
-          }
+          setValue(tempObj, preType, item.name, 0)
         } else if (item.type === 'Object') {
-          if (preType === 'Object') {
-            tempObj[item.name] = {}
-          } else if (preType === 'Object []') {
-            tempObj[0][item.name] = {}
-          } else if (preType === 'String []') {
-            tempObj.push({})
-          }
+          setValue(tempObj, preType, item.name, {})
         } else if (item.type === 'Object []') {
-          if (preType === 'Object') {
-            tempObj[item.name] = [{}]
-          } else if (preType === 'Object []') {
-            tempObj[0][item.name] = [{}]
-          } else if (preType === 'String []') {
-            tempObj.push([{}])
-          }
+          setValue(tempObj, preType, item.name, [{}])
         } else if (item.type === 'String []') {
-          if (preType === 'Object') {
-            tempObj[item.name] = []
-          } else if (preType === 'Object []') {
-            tempObj[0][item.name] = []
-          } else if (preType === 'String []') {
-            tempObj.push([])
-          }
+          setValue(tempObj, preType, item.name, [])
         } else { // 其他默认都是字符串
-          if (preType === 'Object') {
-            tempObj[item.name] = ''
-          } else if (preType === 'Object []') {
-            tempObj[0][item.name] = ''
-          } else if (preType === 'String []') {
-            tempObj.push('')
-          }
+          setValue(tempObj, preType, item.name, '')
         }
       }
     })
+  }
+  // 根据不同类型设置默认值
+  function setValue (tempObj, preType, name, value) {
+    if (preType === 'Object') {
+      tempObj[name] = value
+    } else if (preType === 'Object []') {
+      tempObj[0][name] = value
+    } else if (preType === 'String []') {
+      tempObj.push(value)
+    }
   }
 
   _getStructure(datas, tempObj, 'Object')
