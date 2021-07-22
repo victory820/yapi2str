@@ -82,6 +82,7 @@ function run() {
       const rows = tbody.querySelectorAll('.ant-table-row')
       if (rows) {
         const { maxLevel, allRows } = _restructure(rows)
+        console.log('--55', allRows)
         if (maxLevel > 4) {
           alert('已经超过设置最大层级，不继续了')
           return
@@ -121,6 +122,7 @@ function run() {
             }
           }
         })
+        // console.log('---88', allData)
         return {
           allRows,
           allData
@@ -128,6 +130,8 @@ function run() {
       }
     }
   }
+
+
   // 设置导出的层级名词
   function _setLevelName (row, parent) {
     if (parent.type === 'Object') {

@@ -8,9 +8,10 @@ console.log('bg-js')
  chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log('通知：：：')
   if (request.action === 'notify') {
-    chrome.notifications.create('', {
+    console.log('要通知了')
+    chrome.notifications.create('testId', {
       type: 'basic',
-      iconUrl: '../images/success16.png',
+      iconUrl: './images/success16.png',
       title: '复制',
       message: '复制成功',
       priority: 2
