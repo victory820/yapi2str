@@ -86,44 +86,40 @@ function run() {
           return
         }
         let allData = []
-        // allRows.forEach(row => {
-        //   if (row.level === 0) {
-        //     row.levelName = row.name
-        //     allData.push(row)
-        //   } else {
-        //     if (row.level === 1) {
-        //       let first = allData[allData.length - 1]
-        //       row.parent = first.id
-        //       row.parentLen = first.children.length
-        //       first.children.push(_setLevelName(row, first))
-        //     } else {
-        //       if (row.level === 2) {
-        //         let second = allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1]
-        //         row.parent = second.id
-        //         row.parentLen = second.children.length
-        //         second.children.push(_setLevelName(row, second))
-        //       } else {
-        //         if (row.level === 3) {
-        //           let third = allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children[allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children.length - 1]
-        //           row.parent = third.id
-        //           row.parentLen = third.children.length
-        //           third.children.push(_setLevelName(row, third))
-        //         } else {
-        //           if (row.level === 4) {
-        //             let fourth = allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children[allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children.length - 1].children[allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children[allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children.length - 1].children.length - 1]
-        //             row.parent = fourth.id
-        //             row.parentLen = fourth.children.length
-        //             fourth.children.push(_setLevelName(row, fourth))
-        //           }
-        //         }
-        //       }
-        //     }
-        //   }
-        // })
-        console.log('--11')
-        console.log(allRows)
-        console.log('--22')
-        console.log(allData)
+        allRows.forEach(row => {
+          if (row.level === 0) {
+            row.levelName = row.name
+            allData.push(row)
+          } else {
+            if (row.level === 1) {
+              let first = allData[allData.length - 1]
+              row.parent = first.id
+              row.parentLen = first.children.length
+              first.children.push(_setLevelName(row, first))
+            } else {
+              if (row.level === 2) {
+                let second = allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1]
+                row.parent = second.id
+                row.parentLen = second.children.length
+                second.children.push(_setLevelName(row, second))
+              } else {
+                if (row.level === 3) {
+                  let third = allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children[allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children.length - 1]
+                  row.parent = third.id
+                  row.parentLen = third.children.length
+                  third.children.push(_setLevelName(row, third))
+                } else {
+                  if (row.level === 4) {
+                    let fourth = allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children[allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children.length - 1].children[allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children[allData[allData.length - 1].children[allData[allData.length - 1].children.length - 1].children.length - 1].children.length - 1]
+                    row.parent = fourth.id
+                    row.parentLen = fourth.children.length
+                    fourth.children.push(_setLevelName(row, fourth))
+                  }
+                }
+              }
+            }
+          }
+        })
         return {
           allRows,
           allData

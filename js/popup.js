@@ -1,3 +1,4 @@
+import '../css/index.css'
 import createMockData from './mock.js'
 // 按钮区域
 const commonBtn = document.getElementById('getCommon')
@@ -51,11 +52,9 @@ copyBtn.addEventListener('click', async () => {
     try {
       if (contentType === 'jsdoc') {
         await _copyStr(content)
-        console.log('复制成功')
         chrome.runtime.sendMessage('', {action: 'notify', result: true})
       } else if (contentType === 'mock') {
         await _copyStr(JSON.stringify(JSON.parse(content)))
-        console.log('复制成功')
         chrome.runtime.sendMessage('', {action: 'notify', result: true})
       } else {
         console.log('无法获取复制类型')
